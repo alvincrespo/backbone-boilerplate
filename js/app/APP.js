@@ -1,5 +1,5 @@
 /**
-	@author Sapient
+	@author alvincrespo
 	@description APP class maintains our backbone application under one namespace.
 */
 

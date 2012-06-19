@@ -1,5 +1,5 @@
 /**
-	@author Sapient
+	@author alvincrespo
 	@description Generic Model Class for App
 */
 

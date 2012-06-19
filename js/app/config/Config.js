@@ -1,5 +1,5 @@
 /**
-	@author Sapient
+	@author alvincrespo
 	@description Holds our APP configuration
 */
 

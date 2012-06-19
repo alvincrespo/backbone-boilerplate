@@ -1,5 +1,5 @@
 /**
-	@author Sapient
+	@author alvincrespo
 	@description Generic View Class for App
 */
 
