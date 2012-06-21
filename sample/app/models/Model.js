@@ -1,9 +1,10 @@
 /**
 	@author alvincrespo
-	@description Generic Model Class for App
+	@description Generic Model Class for TODO
 */
+var TODO = window.TODO || {};
 
-APP.Model = Backbone.Model.extend({
+TODO.Model = Backbone.Model.extend({
 
 	'defaults': {
 

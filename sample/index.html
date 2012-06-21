@@ -13,53 +13,42 @@
 </head>
 <body>
   <div class="site-wrapper" role="main">
-    <h1>Site Wrapper</h1>
-    <a href="#Hello">Click Me!</a>
-    <form>
-      <fieldset>
-        <legend>Form all things!</legend>
-        <input placeholder="Change Home View Class">
-      </fieldset>
-    </form>
+    <h1>Hey Look, there are some Todos!</h1>
+    
+    <!-- HOME TODOS -->
+    <section class="todo-list">
+      <header>
+        <h1>Home Todo's <a href="#REMOVE-LIST">Remove List</a></h1>
+      </header>
+      <ul>
+        <li><span contenteditable>Groceries</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+      </ul>
+      <a class="todo-add" href="#ADD">Add a Todo</a>
+    </section>
+
+    <!-- WORK TODOS -->
+    <section class="todo-list">
+      <header>
+        <h1>Work Todo's <a href="#REMOVE-LIST">Remove List</a></h1>
+      </header>
+      <ul>
+        <li><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+        <li><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+        <li><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+      </ul>
+      <a class="todo-add" href="#ADD-TODO">Add a Todo</a>
+    </section>
+
   </div>
   <!-- BEGIN: SCRIPTS - DEPENDANCIES -->
   <script src="../js/libs/jquery-1.7.2.min.js"></script>
   <script src="../js/libs/underscore-min.js"></script>
   <script src="../js/libs/backbone-min.js"></script>
   <!-- END: SCRIPTS - DEPENDANCIES -->
-  <script src="app/APP.js"></script>
   <script src="app/config/Config.js"></script>
   <script src="app/collections/Collection.js"></script>
   <script src="app/models/Model.js"></script>
   <script src="app/views/View.js"></script>
-  <script>
-
-    //Step 1: We initalize a home View based on .site-wrapper
-    APP.views.HomeView = new APP.View({ 
-      'el': document.getElementsByClassName('site-wrapper'), 
-      //we create a classname that applies to this view - we set it dynamically in APP.View's initialize method
-      'className': 'home',
-      //associate a model to the view
-      'model': 'HomeModel'
-    });
-    
-    //Step 2: Here we create a home Model
-    APP.models.HomeModel = new APP.Model({
-      'classname': 'home'
-    });
-
-    //Step 3: Lets create our home Collection which will hold our home Model(s)
-    APP.collections.HomeCollections = new APP.Collection();
-
-    //Step 4: Lets add the home Model to the home Collections we initialized above
-    APP.collections.HomeCollections.add(APP.models.HomeModel);
-
-    //Step 5: Lets create a form View
-    APP.views.FormView = new APP.View({
-      'el': document.getElementsByTagName('form'),
-      'className': 'form'
-    });
-
-  </script>
+  <script src="app/TODO.js"></script>
 </body>
 </html>

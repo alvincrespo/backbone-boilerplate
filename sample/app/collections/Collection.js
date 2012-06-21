@@ -1,11 +1,12 @@
 /**
 	@author alvincrespo
-	@description Generic Collection Class for App
+	@description Generic Collection Class for TODO
 */
+var TODO = window.TODO || {};
 
-APP.Collection = Backbone.Collection.extend({
+TODO.Collection = Backbone.Collection.extend({
 	
-	'model': APP.Model,
+	'model': TODO.Model,
 	
 	/**
 		@function Fires after every instance intialization.

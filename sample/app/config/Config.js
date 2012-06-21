@@ -1,9 +1,10 @@
 /**
 	@author alvincrespo
-	@description Holds our APP configuration
+	@description Holds our TODO configuration
 */
+var TODO = window.TODO || {};
 
-APP.Config = Backbone.Router.extend({
+TODO.Config = Backbone.Router.extend({
 	
 	'routes':  {
 
