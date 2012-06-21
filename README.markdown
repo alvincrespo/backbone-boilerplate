@@ -14,4 +14,4 @@ The purpose of this boilerplate is to ease in frontend devs into Backbone.js dev
 
 ## Contributors
 
-* [http://twitter.com/alvincrespo](@alvincrespo)
+* [@alvincrespo](http://twitter.com/alvincrespo)
