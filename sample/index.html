@@ -1,0 +1,65 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <script src="../js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <div class="site-wrapper" role="main">
+    <h1>Site Wrapper</h1>
+    <a href="#Hello">Click Me!</a>
+    <form>
+      <fieldset>
+        <legend>Form all things!</legend>
+        <input placeholder="Change Home View Class">
+      </fieldset>
+    </form>
+  </div>
+  <!-- BEGIN: SCRIPTS - DEPENDANCIES -->
+  <script src="../js/libs/jquery-1.7.2.min.js"></script>
+  <script src="../js/libs/underscore-min.js"></script>
+  <script src="../js/libs/backbone-min.js"></script>
+  <!-- END: SCRIPTS - DEPENDANCIES -->
+  <script src="app/APP.js"></script>
+  <script src="app/config/Config.js"></script>
+  <script src="app/collections/Collection.js"></script>
+  <script src="app/models/Model.js"></script>
+  <script src="app/views/View.js"></script>
+  <script>
+
+    //Step 1: We initalize a home View based on .site-wrapper
+    APP.views.HomeView = new APP.View({ 
+      'el': document.getElementsByClassName('site-wrapper'), 
+      //we create a classname that applies to this view - we set it dynamically in APP.View's initialize method
+      'className': 'home',
+      //associate a model to the view
+      'model': 'HomeModel'
+    });
+    
+    //Step 2: Here we create a home Model
+    APP.models.HomeModel = new APP.Model({
+      'classname': 'home'
+    });
+
+    //Step 3: Lets create our home Collection which will hold our home Model(s)
+    APP.collections.HomeCollections = new APP.Collection();
+
+    //Step 4: Lets add the home Model to the home Collections we initialized above
+    APP.collections.HomeCollections.add(APP.models.HomeModel);
+
+    //Step 5: Lets create a form View
+    APP.views.FormView = new APP.View({
+      'el': document.getElementsByTagName('form'),
+      'className': 'form'
+    });
+
+  </script>
+</body>
+</html>
