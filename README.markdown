@@ -9,10 +9,10 @@ This boilerplate is very low level, with no requirements on an AMD based script 
 ## Tech Stack
 
 * HTML5
-* jQuery 1.7.2
-* Modernizr 2.5.3
-* Underscore 1.3.3
-* Backbone 0.9.2
+* [jQuery](http://jquery.com/) 1.7.2
+* [Modernizr](http://modernizr.com/) 2.5.3
+* [Underscore](http://documentcloud.github.com/underscore/) 1.3.3
+* [Backbone](http://backbonejs.org/) 0.9.2
 
 ## Contributors
 
