@@ -4,6 +4,8 @@
 
 The purpose of this boilerplate is to ease in frontend devs into Backbone.js development by providing a framework of organization to a frontend mvc application.
 
+This boilerplate is very low level, with no requirements on an AMD based script loader or build script. It is to get you off the ground quickly with as little dependencies as possible.
+
 ## Tech Stack
 
 * HTML5
