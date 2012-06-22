@@ -15,22 +15,25 @@ TODO = (function(win, doc, $) {
 	/**
 		@constructor
 	*/
-	function TODO () {
-		var $todoLists = $('.todo-list'),
-			that = this;
-
+	function TODO (options) {
 		//We organize our instance of views, models and collections
 		this.views = {};
 		this.models = {};
 		this.collections = {};
 
-		//Lets create a TodoItem that extends our Base TODO.Model class
-	    this.models.TodoItem = new win.TODO.Model({
-	      'classname': 'todo'
-	    });
+		this.options = $.extend({}, defaults, options, true);
+	}
 
+	TODO.prototype.init = function () {
 	    //While, we're at it, create a TodoItemCollection to hold a collection of Items, even they are in seperate lists
 	    this.collections.TodoItemCollection = new win.TODO.Collection();
+
+		this.initViews();
+		this.initModels();
+	}
+
+	TODO.prototype.initViews = function () {
+		var $todoLists = $('.todo-list'), that = this;
 
 	    //Now find each todo list on the page and initialize a view based on each list
 		_.each($todoLists, function(element, index, list) {
@@ -39,11 +42,24 @@ TODO = (function(win, doc, $) {
 		      'className': 'todolist'
 		    });
 		});
+	}
 
+	TODO.prototype.initModels = function () {
+		var that = this;
 
+		_.each($('.todo-item'), function(element, index, list) {
+			var model;
+
+			//Lets create a TodoItem that extends our Base TODO.Model class
+			model = new win.TODO.Model({ 'text': element.getElementsByTagName('span')[0].textContent });
+
+			$.data(element, 'todo-model' , model);
+
+			that.collections.TodoItemCollection.add(model);
+		});
 	}
 
 	// Returns a new instance of the APP namespace
-	return new TODO();
+	return new TODO;
 
 }(window, document, jQuery));

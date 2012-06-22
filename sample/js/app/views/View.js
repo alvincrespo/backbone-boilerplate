@@ -2,7 +2,6 @@
 	@author alvincrespo
 	@description Generic View Class for TODO
 */
-
 var TODO = window.TODO || {};
 
 TODO.View = Backbone.View.extend({

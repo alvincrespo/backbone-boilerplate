@@ -2,6 +2,7 @@
 	@author alvincrespo
 	@description Generic Model Class for App
 */
+var APP = window.APP || {};
 
 APP.Model = Backbone.Model.extend({
 

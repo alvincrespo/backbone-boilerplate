@@ -21,7 +21,7 @@
         <h1>Home Todo's <a href="#REMOVE-LIST">Remove List</a></h1>
       </header>
       <ul>
-        <li><span contenteditable>Groceries</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+        <li class="todo-item"><span contenteditable>Groceries</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
       </ul>
       <a class="todo-add" href="#ADD">Add a Todo</a>
     </section>
@@ -32,9 +32,9 @@
         <h1>Work Todo's <a href="#REMOVE-LIST">Remove List</a></h1>
       </header>
       <ul>
-        <li><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
-        <li><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
-        <li><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+        <li class="todo-item"><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+        <li class="todo-item"><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
+        <li class="todo-item"><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
       </ul>
       <a class="todo-add" href="#ADD-TODO">Add a Todo</a>
     </section>
@@ -45,10 +45,13 @@
   <script src="../js/libs/underscore-min.js"></script>
   <script src="../js/libs/backbone-min.js"></script>
   <!-- END: SCRIPTS - DEPENDANCIES -->
-  <script src="app/config/Config.js"></script>
-  <script src="app/collections/Collection.js"></script>
-  <script src="app/models/Model.js"></script>
-  <script src="app/views/View.js"></script>
-  <script src="app/TODO.js"></script>
+  <script src="js/app/TODO.js"></script>
+  <script src="js/app/config/Config.js"></script>
+  <script src="js/app/collections/Collection.js"></script>
+  <script src="js/app/models/Model.js"></script>
+  <script src="js/app/views/View.js"></script>
+  <script>
+    TODO.init();
+  </script>
 </body>
 </html>

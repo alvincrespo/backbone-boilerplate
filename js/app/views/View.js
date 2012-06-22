@@ -2,6 +2,7 @@
 	@author alvincrespo
 	@description Generic View Class for App
 */
+var APP = window.APP || {};
 
 APP.View = Backbone.View.extend({
 	

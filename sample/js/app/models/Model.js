@@ -7,7 +7,9 @@ var TODO = window.TODO || {};
 TODO.Model = Backbone.Model.extend({
 
 	'defaults': {
-
+		//ADJUSTMENT
+		//Sample attribute of Model
+		'text': 'Todo Text Value'
 	},
 	
 	/**
