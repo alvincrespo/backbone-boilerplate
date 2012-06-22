@@ -14,7 +14,8 @@ TODO.View = Backbone.View.extend({
 	'events': {
 		'click header a': 'removeList',
 		'click .todo-add': 'addItem',
-		'click .todo-remove': 'removeItem'
+		'click .todo-remove': 'removeItem',
+		'keydown span': 'handleKeyDown'
 	},
 	
 	/**
@@ -57,6 +58,30 @@ TODO.View = Backbone.View.extend({
 
 	'removeItem': function () {
 		alert("Remove this Item");
+	},
+
+	/**
+		@event
+		@description Handles the key down event on a contenteditable element
+		@param {Event} e
+	*/
+	'handleKeyDown': function (e) {
+		var ele = e.target;
+
+		switch(e.which) {
+			case 27:
+				//document.execCommand('undo');
+			    el.blur();
+				break;
+			case 13:
+				ele.blur();
+				console.log("Update");
+				e.preventDefault();
+				break;
+			default:
+				break;
+		}
+
 	}
 
 });
