@@ -29,7 +29,7 @@ APP = (function(win, doc, $) {
 
 	APP.prototype.init = function () {
 
-	}
+	};
 
 	// Returns a new instance of the APP namespace
 	return new APP();

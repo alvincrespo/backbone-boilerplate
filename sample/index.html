@@ -18,7 +18,8 @@
     <!-- HOME TODOS -->
     <section class="todo-list">
       <header>
-        <h1>Home Todo's <a href="#REMOVE-LIST">Remove List</a></h1>
+        <h1 contenteditable>Home Todo's</h1>
+        <a href="#REMOVE-LIST">Remove List</a>
       </header>
       <ul>
         <li class="todo-item"><span contenteditable>Groceries</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
@@ -29,7 +30,8 @@
     <!-- WORK TODOS -->
     <section class="todo-list">
       <header>
-        <h1>Work Todo's <a href="#REMOVE-LIST">Remove List</a></h1>
+        <h1 contenteditable>Work Todo's</h1>
+        <a href="#REMOVE-LIST">Remove List</a>
       </header>
       <ul>
         <li class="todo-item"><span contenteditable>Program!</span> <a class="todo-remove" href="#REMOVE-TODO">Remove</a></li>
@@ -39,6 +41,7 @@
       <a class="todo-add" href="#ADD-TODO">Add a Todo</a>
     </section>
 
+    <a href="#ADD-LIST">Add List</a>
   </div>
   <!-- BEGIN: SCRIPTS - DEPENDANCIES -->
   <script src="../js/libs/jquery-1.7.2.min.js"></script>
@@ -49,9 +52,18 @@
   <script src="js/app/config/Config.js"></script>
   <script src="js/app/collections/Collection.js"></script>
   <script src="js/app/models/Model.js"></script>
+  <script src="js/app/views/PageView.js"></script>
   <script src="js/app/views/View.js"></script>
-  <script>
-    TODO.init();
+  <script> TODO.init(); </script>
+  <script type="todo/tmpl" id="todo-list-tmpl">
+    <section class="todo-list">
+      <header>
+        <h1 contenteditable>Groceries</h1>
+        <a href="#REMOVE-LIST">Remove List</a>
+      </header>
+      <ul></ul>
+      <a class="todo-add" href="#ADD-TODO">Add a Todo</a>
+    </section>    
   </script>
 </body>
 </html>

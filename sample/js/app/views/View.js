@@ -9,8 +9,6 @@ TODO.View = Backbone.View.extend({
 	'className': 'default',
 
 	// Events delegated to the view
-	//ADJUSTMENT
-	//We now have specific events for each action to be taken
 	'events': {
 		'click header a': 'removeList',
 		'click .todo-add': 'addItem',
@@ -23,13 +21,7 @@ TODO.View = Backbone.View.extend({
 		@description Fires after every instance intialization.
 	*/
 	'initialize': function() {
-		this.$el.addClass('app-view-' + this.className);
-
-		//ADJUSTMENT
-		// Since there will be various lists on the page, and we may want to 
-		// tie into a specific one later on, we should create a specific class for each,
-		// lets use the cid of the view to distinguish
-		this.$el.addClass('app-view-' + this.className + "-" + this.cid);
+		this.$el.addClass('app-view-' + this.className + ' app-view-' + this.className + "-" + this.cid);
 	},
 
 	/**
@@ -44,20 +36,31 @@ TODO.View = Backbone.View.extend({
 		@function
 		@description Removes the List
 	*/
-	'removeList': function () {
-		alert("Remove this list.");
+	'removeList': function (e) {
+		e.preventDefault();
+
+		$(e.target).closest('.todo-list').remove();
 	},
 
 	/**
 		@function
 		@description Adds an Item to the list.
 	*/
-	'addItem': function () {
-		alert("Add an Item");
+	'addItem': function (e) {
+		e.preventDefault();
+
+		var $todoListItem = $('<li />', {
+			'class': 'todo-item',
+			'html': '<span contenteditable>Bananas</span><a class="todo-remove" href="#REMOVE-TODO">Remove</a>'
+		});
+
+		this.$el.find('ul').append($todoListItem);
 	},
 
-	'removeItem': function () {
-		alert("Remove this Item");
+	'removeItem': function (e) {
+		e.preventDefault();
+
+		$(e.target).parent().remove();
 	},
 
 	/**
@@ -70,8 +73,7 @@ TODO.View = Backbone.View.extend({
 
 		switch(e.which) {
 			case 27:
-				//document.execCommand('undo');
-			    el.blur();
+				el.blur();
 				break;
 			case 13:
 				ele.blur();
@@ -81,7 +83,5 @@ TODO.View = Backbone.View.extend({
 			default:
 				break;
 		}
-
 	}
-
 });

@@ -10,7 +10,8 @@ var TODO = window.TODO || {};
 
 TODO = (function(win, doc, $) {
 
-	var defaults = {};
+	var defaults = {},
+		_self;
 
 	/**
 		@constructor
@@ -22,27 +23,33 @@ TODO = (function(win, doc, $) {
 		this.collections = {};
 
 		this.options = $.extend({}, defaults, options, true);
+
+		_self = this;
 	}
 
 	TODO.prototype.init = function () {
-	    //While, we're at it, create a TodoItemCollection to hold a collection of Items, even they are in seperate lists
-	    this.collections.TodoItemCollection = new win.TODO.Collection();
+		//While, we're at it, create a TodoItemCollection to hold a collection of Items, even they are in seperate lists
+		this.collections.TodoItemCollection = new win.TODO.Collection();
 
 		this.initViews();
 		this.initModels();
-	}
+	};
 
 	TODO.prototype.initViews = function () {
 		var $todoLists = $('.todo-list'), that = this;
 
-	    //Now find each todo list on the page and initialize a view based on each list
-		_.each($todoLists, function(element, index, list) {
-			that.views['TodoList_' + index] = new win.TODO.View({
-		      'el': element, 
-		      'className': 'todolist'
-		    });
+		that.views.pageView = new _self.PageView({
+			'el': document.querySelector('div[role="main"]')
 		});
-	}
+
+		//Now find each todo list on the page and initialize a view based on each list
+		_.each($todoLists, function(element, index, list) {
+			that.views['TodoList_' + index] = new _self.View({
+				'el': element,
+				'className': 'todolist'
+			});
+		});
+	};
 
 	TODO.prototype.initModels = function () {
 		var that = this;
@@ -51,15 +58,17 @@ TODO = (function(win, doc, $) {
 			var model;
 
 			//Lets create a TodoItem that extends our Base TODO.Model class
-			model = new win.TODO.Model({ 'text': element.getElementsByTagName('span')[0].textContent });
+			model = new _self.Model({
+				'text': element.getElementsByTagName('span')[0].textContent
+			});
 
 			$.data(element, 'todo-model' , model);
 
 			that.collections.TodoItemCollection.add(model);
 		});
-	}
+	};
 
 	// Returns a new instance of the APP namespace
-	return new TODO;
+	return new TODO();
 
 }(window, document, jQuery));
